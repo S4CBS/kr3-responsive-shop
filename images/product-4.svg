@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" width="400" height="260" fill="none">
+  <rect width="400" height="260" rx="12" fill="#e2e8f0" />
+  <defs>
+    <filter id="p4Shadow" x="-10%" y="-10%" width="120%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#475569" flood-opacity="0.2" />
+    </filter>
+  </defs>
+  <g filter="url(#p4Shadow)">
+    <rect x="45" y="48" width="310" height="164" rx="8" fill="#d1d5db" stroke="#9ca3af" stroke-width="2" />
+    <rect x="52" y="55" width="296" height="150" rx="4" fill="#9ca3af" />
+  </g>
+  <!-- Retro keycaps -->
+  <g fill="#f3f4f6" stroke="#d1d5db">
+    <!-- Top row -->
+    <rect x="60" y="65" width="18" height="18" rx="2" fill="#ef4444" stroke="#dc2626" />
+    <rect x="82" y="65" width="16" height="18" rx="2" fill="#9ca3af" />
+    <rect x="102" y="65" width="16" height="18" rx="2" fill="#9ca3af" />
+    <rect x="122" y="65" width="16" height="18" rx="2" fill="#9ca3af" />
+    <rect x="142" y="65" width="16" height="18" rx="2" fill="#9ca3af" />
+    <rect x="166" y="65" width="16" height="18" rx="2" />
+    <rect x="186" y="65" width="16" height="18" rx="2" />
+    <rect x="206" y="65" width="16" height="18" rx="2" />
+    <rect x="226" y="65" width="16" height="18" rx="2" />
+    <rect x="250" y="65" width="16" height="18" rx="2" fill="#9ca3af" />
+    <rect x="270" y="65" width="16" height="18" rx="2" fill="#9ca3af" />
+    <rect x="290" y="65" width="16" height="18" rx="2" fill="#9ca3af" />
+    <rect x="314" y="65" width="24" height="18" rx="2" fill="#9ca3af" />
+
+    <!-- Number row -->
+    <rect x="60" y="90" width="18" height="20" rx="2" />
+    <rect x="82" y="90" width="16" height="20" rx="2" />
+    <rect x="102" y="90" width="16" height="20" rx="2" />
+    <rect x="122" y="90" width="16" height="20" rx="2" />
+    <rect x="142" y="90" width="16" height="20" rx="2" />
+    <rect x="162" y="90" width="16" height="20" rx="2" />
+    <rect x="182" y="90" width="16" height="20" rx="2" />
+    <rect x="202" y="90" width="16" height="20" rx="2" />
+    <rect x="222" y="90" width="16" height="20" rx="2" />
+    <rect x="242" y="90" width="16" height="20" rx="2" />
+    <rect x="262" y="90" width="16" height="20" rx="2" />
+    <rect x="282" y="90" width="16" height="20" rx="2" />
+    <rect x="302" y="90" width="36" height="20" rx="2" fill="#9ca3af" />
+
+    <!-- QWERTY -->
+    <rect x="60" y="114" width="26" height="20" rx="2" fill="#9ca3af" />
+    <rect x="90" y="114" width="16" height="20" rx="2" />
+    <rect x="110" y="114" width="16" height="20" rx="2" />
+    <rect x="130" y="114" width="16" height="20" rx="2" />
+    <rect x="150" y="114" width="16" height="20" rx="2" />
+    <rect x="170" y="114" width="16" height="20" rx="2" />
+    <rect x="190" y="114" width="16" height="20" rx="2" />
+    <rect x="210" y="114" width="16" height="20" rx="2" />
+    <rect x="230" y="114" width="16" height="20" rx="2" />
+    <rect x="250" y="114" width="16" height="20" rx="2" />
+    <rect x="270" y="114" width="16" height="20" rx="2" />
+    <rect x="290" y="114" width="16" height="20" rx="2" />
+    <rect x="310" y="114" width="28" height="20" rx="2" fill="#9ca3af" />
+
+    <!-- ASDF -->
+    <rect x="60" y="138" width="32" height="20" rx="2" fill="#9ca3af" />
+    <rect x="96" y="138" width="16" height="20" rx="2" />
+    <rect x="116" y="138" width="16" height="20" rx="2" />
+    <rect x="136" y="138" width="16" height="20" rx="2" />
+    <rect x="156" y="138" width="16" height="20" rx="2" />
+    <rect x="176" y="138" width="16" height="20" rx="2" />
+    <rect x="196" y="138" width="16" height="20" rx="2" />
+    <rect x="216" y="138" width="16" height="20" rx="2" />
+    <rect x="236" y="138" width="16" height="20" rx="2" />
+    <rect x="256" y="138" width="16" height="20" rx="2" />
+    <rect x="276" y="138" width="16" height="20" rx="2" />
+    <rect x="296" y="138" width="42" height="20" rx="2" fill="#0284c7" stroke="#0369a1" />
+
+    <!-- Space row -->
+    <rect x="60" y="162" width="24" height="20" rx="2" fill="#9ca3af" />
+    <rect x="88" y="162" width="20" height="20" rx="2" fill="#9ca3af" />
+    <rect x="112" y="162" width="24" height="20" rx="2" fill="#9ca3af" />
+    <rect x="140" y="162" width="98" height="20" rx="2" fill="#ffffff" />
+    <rect x="242" y="162" width="22" height="20" rx="2" fill="#9ca3af" />
+    <rect x="268" y="162" width="20" height="20" rx="2" fill="#9ca3af" />
+    <rect x="292" y="162" width="20" height="20" rx="2" fill="#9ca3af" />
+    <rect x="316" y="162" width="22" height="20" rx="2" fill="#9ca3af" />
+  </g>
+</svg>

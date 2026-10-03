@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" width="400" height="260" fill="none">
+  <rect width="400" height="260" rx="12" fill="#eff6ff" />
+  <defs>
+    <filter id="p6Shadow" x="-10%" y="-10%" width="120%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#3b82f6" flood-opacity="0.18" />
+    </filter>
+  </defs>
+  <g filter="url(#p6Shadow)">
+    <rect x="50" y="45" width="300" height="170" rx="16" fill="#ffffff" stroke="#bfdbfe" stroke-width="2" />
+  </g>
+  <!-- Keycap gradient rows inside presentation tray -->
+  <g transform="translate(65, 60)">
+    <!-- Row 1: Deep Navy -->
+    <g fill="#1e3a8a" stroke="#172554">
+      <rect x="0" y="0" width="22" height="26" rx="4" />
+      <rect x="26" y="0" width="22" height="26" rx="4" />
+      <rect x="52" y="0" width="22" height="26" rx="4" />
+      <rect x="78" y="0" width="22" height="26" rx="4" />
+      <rect x="104" y="0" width="22" height="26" rx="4" />
+      <rect x="130" y="0" width="22" height="26" rx="4" />
+      <rect x="156" y="0" width="22" height="26" rx="4" />
+      <rect x="182" y="0" width="22" height="26" rx="4" />
+      <rect x="208" y="0" width="22" height="26" rx="4" />
+      <rect x="234" y="0" width="36" height="26" rx="4" />
+    </g>
+    <!-- Row 2: Royal Blue -->
+    <g fill="#2563eb" stroke="#1d4ed8">
+      <rect x="0" y="32" width="28" height="26" rx="4" />
+      <rect x="32" y="32" width="22" height="26" rx="4" />
+      <rect x="58" y="32" width="22" height="26" rx="4" />
+      <rect x="84" y="32" width="22" height="26" rx="4" />
+      <rect x="110" y="32" width="22" height="26" rx="4" />
+      <rect x="136" y="32" width="22" height="26" rx="4" />
+      <rect x="162" y="32" width="22" height="26" rx="4" />
+      <rect x="188" y="32" width="22" height="26" rx="4" />
+      <rect x="214" y="32" width="22" height="26" rx="4" />
+      <rect x="240" y="32" width="30" height="26" rx="4" />
+    </g>
+    <!-- Row 3: Sky Cyan -->
+    <g fill="#0ea5e9" stroke="#0284c7">
+      <rect x="0" y="64" width="34" height="26" rx="4" />
+      <rect x="38" y="64" width="22" height="26" rx="4" />
+      <rect x="64" y="64" width="22" height="26" rx="4" />
+      <rect x="90" y="64" width="22" height="26" rx="4" />
+      <rect x="116" y="64" width="22" height="26" rx="4" />
+      <rect x="142" y="64" width="22" height="26" rx="4" />
+      <rect x="168" y="64" width="22" height="26" rx="4" />
+      <rect x="194" y="64" width="22" height="26" rx="4" />
+      <rect x="220" y="64" width="50" height="26" rx="4" />
+    </g>
+    <!-- Row 4: Ice White -->
+    <g fill="#f0f9ff" stroke="#bae6fd">
+      <rect x="0" y="96" width="38" height="26" rx="4" />
+      <rect x="42" y="96" width="22" height="26" rx="4" />
+      <rect x="68" y="96" width="22" height="26" rx="4" />
+      <rect x="94" y="96" width="110" height="26" rx="4" />
+      <rect x="208" y="96" width="28" height="26" rx="4" />
+      <rect x="240" y="96" width="30" height="26" rx="4" />
+    </g>
+  </g>
+  <text x="200" y="200" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#0284c7" text-anchor="middle">CHERRY PROFILE · DYE-SUB PBT · 134 KEYS</text>
+</svg>

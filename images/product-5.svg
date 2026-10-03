@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" width="400" height="260" fill="none">
+  <rect width="400" height="260" rx="12" fill="#fef2f2" />
+  <defs>
+    <filter id="p5Shadow" x="-10%" y="-10%" width="120%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#ef4444" flood-opacity="0.2" />
+    </filter>
+  </defs>
+  <!-- Switch Box Container -->
+  <g filter="url(#p5Shadow)">
+    <rect x="70" y="45" width="260" height="170" rx="16" fill="#ffffff" stroke="#fca5a5" stroke-width="2" />
+    <rect x="85" y="60" width="230" height="140" rx="10" fill="#fff1f2" />
+  </g>
+  <!-- Individual Switches Illustration -->
+  <g transform="translate(110, 75)">
+    <!-- Switch 1 -->
+    <rect x="0" y="10" width="48" height="40" rx="6" fill="#f87171" stroke="#dc2626" stroke-width="1.5" />
+    <rect x="14" y="0" width="20" height="22" rx="4" fill="#ef4444" />
+    <path d="M24 4V16M18 10H30" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+    <!-- Switch 2 -->
+    <rect x="65" y="10" width="48" height="40" rx="6" fill="#f87171" stroke="#dc2626" stroke-width="1.5" />
+    <rect x="79" y="0" width="20" height="22" rx="4" fill="#ef4444" />
+    <path d="M89 4V16M83 10H95" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+    <!-- Switch 3 -->
+    <rect x="130" y="10" width="48" height="40" rx="6" fill="#f87171" stroke="#dc2626" stroke-width="1.5" />
+    <rect x="144" y="0" width="20" height="22" rx="4" fill="#ef4444" />
+    <path d="M154 4V16M148 10H160" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Switch 4 -->
+    <rect x="30" y="65" width="48" height="40" rx="6" fill="#f87171" stroke="#dc2626" stroke-width="1.5" />
+    <rect x="44" y="55" width="20" height="22" rx="4" fill="#ef4444" />
+    <path d="M54 59V71M48 65H60" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+    <!-- Switch 5 -->
+    <rect x="95" y="65" width="48" height="40" rx="6" fill="#f87171" stroke="#dc2626" stroke-width="1.5" />
+    <rect x="109" y="55" width="20" height="22" rx="4" fill="#ef4444" />
+    <path d="M119 59V71M113 65H125" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+  </g>
+  <text x="200" y="200" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#dc2626" text-anchor="middle">LINEAR RED 45G · 70 PCS</text>
+</svg>

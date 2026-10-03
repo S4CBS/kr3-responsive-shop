@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" width="720" height="420" fill="none">
+  <defs>
+    <linearGradient id="bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.05" />
+    </linearGradient>
+    <linearGradient id="caseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="rgbBar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ec4899" />
+      <stop offset="25%" stop-color="#8b5cf6" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="75%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#0f172a" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Background aura -->
+  <ellipse cx="360" cy="210" rx="320" ry="170" fill="url(#bgGlow)" />
+
+  <!-- Keyboard Body Outer Case -->
+  <g filter="url(#softShadow)">
+    <rect x="70" y="70" width="580" height="280" rx="24" fill="url(#caseGrad)" stroke="#475569" stroke-width="2" />
+    <!-- Underglow light strip -->
+    <rect x="78" y="78" width="564" height="6" rx="3" fill="url(#rgbBar)" opacity="0.85" />
+    <!-- Inner Plate -->
+    <rect x="90" y="94" width="540" height="236" rx="14" fill="#0f172a" />
+  </g>
+
+  <!-- Knob in top right -->
+  <circle cx="600" cy="120" r="14" fill="#64748b" stroke="#94a3b8" stroke-width="2" />
+  <circle cx="600" cy="120" r="9" fill="#334155" />
+  <line x1="600" y1="113" x2="600" y2="120" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" />
+
+  <!-- Row 1: Function Keys -->
+  <g fill="#1e293b" stroke="#334155">
+    <rect x="105" y="106" width="34" height="26" rx="4" fill="#ef4444" stroke="#dc2626" />
+    <rect x="147" y="106" width="28" height="26" rx="4" />
+    <rect x="181" y="106" width="28" height="26" rx="4" />
+    <rect x="215" y="106" width="28" height="26" rx="4" />
+    <rect x="249" y="106" width="28" height="26" rx="4" />
+    <rect x="291" y="106" width="28" height="26" rx="4" />
+    <rect x="325" y="106" width="28" height="26" rx="4" />
+    <rect x="359" y="106" width="28" height="26" rx="4" />
+    <rect x="393" y="106" width="28" height="26" rx="4" />
+    <rect x="435" y="106" width="28" height="26" rx="4" />
+    <rect x="469" y="106" width="28" height="26" rx="4" />
+    <rect x="503" y="106" width="28" height="26" rx="4" />
+    <rect x="537" y="106" width="28" height="26" rx="4" />
+    <rect x="571" y="106" width="16" height="26" rx="4" fill="#0284c7" stroke="#0369a1" />
+  </g>
+
+  <!-- Row 2: Numbers -->
+  <g fill="#334155" stroke="#475569">
+    <rect x="105" y="142" width="28" height="32" rx="5" />
+    <rect x="139" y="142" width="28" height="32" rx="5" />
+    <rect x="173" y="142" width="28" height="32" rx="5" />
+    <rect x="207" y="142" width="28" height="32" rx="5" />
+    <rect x="241" y="142" width="28" height="32" rx="5" />
+    <rect x="275" y="142" width="28" height="32" rx="5" />
+    <rect x="309" y="142" width="28" height="32" rx="5" />
+    <rect x="343" y="142" width="28" height="32" rx="5" />
+    <rect x="377" y="142" width="28" height="32" rx="5" />
+    <rect x="411" y="142" width="28" height="32" rx="5" />
+    <rect x="445" y="142" width="28" height="32" rx="5" />
+    <rect x="479" y="142" width="28" height="32" rx="5" />
+    <rect x="513" y="142" width="28" height="32" rx="5" />
+    <rect x="547" y="142" width="46" height="32" rx="5" fill="#475569" stroke="#64748b" />
+    <rect x="599" y="142" width="17" height="32" rx="5" fill="#1e293b" />
+  </g>
+
+  <!-- Row 3: QWERTY -->
+  <g fill="#475569" stroke="#64748b">
+    <rect x="105" y="182" width="40" height="32" rx="5" fill="#334155" />
+    <rect x="151" y="182" width="28" height="32" rx="5" />
+    <rect x="185" y="182" width="28" height="32" rx="5" fill="#0284c7" stroke="#0369a1" />
+    <rect x="219" y="182" width="28" height="32" rx="5" fill="#0284c7" stroke="#0369a1" />
+    <rect x="253" y="182" width="28" height="32" rx="5" fill="#0284c7" stroke="#0369a1" />
+    <rect x="287" y="182" width="28" height="32" rx="5" />
+    <rect x="321" y="182" width="28" height="32" rx="5" />
+    <rect x="355" y="182" width="28" height="32" rx="5" />
+    <rect x="389" y="182" width="28" height="32" rx="5" />
+    <rect x="423" y="182" width="28" height="32" rx="5" />
+    <rect x="457" y="182" width="28" height="32" rx="5" />
+    <rect x="491" y="182" width="28" height="32" rx="5" />
+    <rect x="525" y="182" width="28" height="32" rx="5" />
+    <rect x="559" y="182" width="34" height="32" rx="5" fill="#334155" />
+    <rect x="599" y="182" width="17" height="32" rx="5" fill="#1e293b" stroke="#334155" />
+  </g>
+
+  <!-- Row 4: ASDF -->
+  <g fill="#475569" stroke="#64748b">
+    <rect x="105" y="222" width="48" height="32" rx="5" fill="#334155" />
+    <rect x="159" y="222" width="28" height="32" rx="5" fill="#0284c7" stroke="#0369a1" />
+    <rect x="193" y="222" width="28" height="32" rx="5" fill="#0284c7" stroke="#0369a1" />
+    <rect x="227" y="222" width="28" height="32" rx="5" fill="#0284c7" stroke="#0369a1" />
+    <rect x="261" y="222" width="28" height="32" rx="5" />
+    <rect x="295" y="222" width="28" height="32" rx="5" />
+    <rect x="329" y="222" width="28" height="32" rx="5" />
+    <rect x="363" y="222" width="28" height="32" rx="5" />
+    <rect x="397" y="222" width="28" height="32" rx="5" />
+    <rect x="431" y="222" width="28" height="32" rx="5" />
+    <rect x="465" y="222" width="28" height="32" rx="5" />
+    <rect x="499" y="222" width="28" height="32" rx="5" />
+    <rect x="533" y="222" width="60" height="32" rx="5" fill="#f59e0b" stroke="#d97706" />
+    <rect x="599" y="222" width="17" height="32" rx="5" fill="#1e293b" stroke="#334155" />
+  </g>
+
+  <!-- Row 5: ZXCV -->
+  <g fill="#475569" stroke="#64748b">
+    <rect x="105" y="262" width="62" height="32" rx="5" fill="#334155" />
+    <rect x="173" y="262" width="28" height="32" rx="5" />
+    <rect x="207" y="262" width="28" height="32" rx="5" />
+    <rect x="241" y="262" width="28" height="32" rx="5" />
+    <rect x="275" y="262" width="28" height="32" rx="5" />
+    <rect x="309" y="262" width="28" height="32" rx="5" />
+    <rect x="343" y="262" width="28" height="32" rx="5" />
+    <rect x="377" y="262" width="28" height="32" rx="5" />
+    <rect x="411" y="262" width="28" height="32" rx="5" />
+    <rect x="445" y="262" width="28" height="32" rx="5" />
+    <rect x="479" y="262" width="28" height="32" rx="5" />
+    <rect x="513" y="262" width="46" height="32" rx="5" fill="#334155" />
+    <rect x="565" y="262" width="24" height="32" rx="5" fill="#2563eb" stroke="#1d4ed8" />
+    <rect x="595" y="262" width="21" height="32" rx="5" fill="#1e293b" stroke="#334155" />
+  </g>
+
+  <!-- Row 6: Spacebar row & Arrows -->
+  <g fill="#334155" stroke="#475569">
+    <rect x="105" y="302" width="36" height="24" rx="4" />
+    <rect x="147" y="302" width="32" height="24" rx="4" />
+    <rect x="185" y="302" width="36" height="24" rx="4" fill="#0284c7" stroke="#0369a1" />
+    <!-- Spacebar -->
+    <rect x="227" y="302" width="180" height="24" rx="4" fill="#f8fafc" stroke="#cbd5e1" />
+    <rect x="413" y="302" width="34" height="24" rx="4" fill="#0284c7" stroke="#0369a1" />
+    <rect x="453" y="302" width="32" height="24" rx="4" />
+    <rect x="491" y="302" width="34" height="24" rx="4" />
+    <!-- Arrows -->
+    <rect x="531" y="302" width="26" height="24" rx="4" fill="#2563eb" stroke="#1d4ed8" />
+    <rect x="563" y="302" width="26" height="24" rx="4" fill="#2563eb" stroke="#1d4ed8" />
+    <rect x="595" y="302" width="21" height="24" rx="4" fill="#2563eb" stroke="#1d4ed8" />
+  </g>
+
+  <!-- Glowing cyan indicators -->
+  <circle cx="585" cy="88" r="3" fill="#38bdf8" />
+  <circle cx="597" cy="88" r="3" fill="#38bdf8" />
+  <circle cx="609" cy="88" r="3" fill="#10b981" />
+</svg>

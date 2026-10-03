@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Оформление заказа | Магазин KeyCraft</title>
+  <meta name="description" content="Форма заказа клавиатур, переключателей и аксессуаров в магазине KeyCraft. Укажите контакты, адрес и способ доставки.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+
+  <!-- Шапка сайта -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <div class="site-header__brand">
+        <a href="index.html" class="site-header__logo" aria-label="KeyCraft на главную">
+          <img src="images/logo.svg" alt="Логотип KeyCraft" class="site-header__logo-img">
+        </a>
+      </div>
+
+      <nav class="site-nav" aria-label="Основное меню">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a href="index.html" class="site-nav__link">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="catalog.html" class="site-nav__link">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="index.html#advantages" class="site-nav__link">Преимущества</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="index.html#popular" class="site-nav__link">Популярное</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="order.html" class="site-nav__link site-nav__link--active" aria-current="page">Заказ</a>
+          </li>
+          <li class="site-nav__item">
+            <a href="contacts.html" class="site-nav__link">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <button type="button" class="button button--outline" data-open-modal="quick-order">Консультация</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Единственный main -->
+  <main id="main-content" class="site-main">
+    <div class="container">
+
+      <!-- Хлебные крошки -->
+      <nav class="breadcrumbs" aria-label="Навигационная цепочка">
+        <ol class="breadcrumbs__list">
+          <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+          <li class="breadcrumbs__item"><span class="breadcrumbs__link--current">Оформление заказа</span></li>
+        </ol>
+      </nav>
+
+      <div class="section__header">
+        <h1 class="section__title">Оформление заказа</h1>
+        <p class="section__description">Заполните контактные данные для бронирования товара и согласования доставки</p>
+      </div>
+
+      <!-- Раскладка страницы заказа: форма + панель состава (aside) -->
+      <div class="order-page-layout">
+        
+        <!-- Контейнер формы заказа (section) -->
+        <section class="order-form-container" aria-labelledby="form-heading">
+          <h2 id="form-heading" class="visually-hidden">Данные покупателя</h2>
+
+          <form action="order.html" method="post" class="order-form">
+            
+            <div class="order-form__grid">
+              <!-- Поле 1: Имя -->
+              <div class="order-form__field">
+                <label for="order-user-name" class="order-form__label">
+                  Ваше имя и фамилия <span class="order-form__required">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="order-user-name" 
+                  name="user_name" 
+                  class="order-form__input" 
+                  placeholder="Алексей Панов" 
+                  autocomplete="name" 
+                  required
+                >
+              </div>
+
+              <!-- Поле 2: Телефон -->
+              <div class="order-form__field">
+                <label for="order-user-phone" class="order-form__label">
+                  Контактный телефон <span class="order-form__required">*</span>
+                </label>
+                <input 
+                  type="tel" 
+                  id="order-user-phone" 
+                  name="user_phone" 
+                  class="order-form__input" 
+                  placeholder="+7 (999) 123-45-67" 
+                  autocomplete="tel" 
+                  required
+                >
+              </div>
+
+              <!-- Поле 3: E-mail (проверка через type="email") -->
+              <div class="order-form__field order-form__field--full">
+                <label for="order-user-email" class="order-form__label">
+                  Электронная почта <span class="order-form__required">*</span>
+                </label>
+                <input 
+                  type="email" 
+                  id="order-user-email" 
+                  name="user_email" 
+                  class="order-form__input" 
+                  placeholder="panov@example.ru" 
+                  autocomplete="email" 
+                  required
+                >
+              </div>
+
+              <!-- Поле 4: Выбор товара или темы заявки -->
+              <div class="order-form__field order-form__field--full">
+                <label for="order-product-choice" class="order-form__label">
+                  Выбранный товар или услуга <span class="order-form__required">*</span>
+                </label>
+                <select id="order-product-choice" name="product_item" class="order-form__select" required>
+                  <option value="">Выберите позицию из каталога</option>
+                  <option value="kc-pro-75" selected>KeyCraft Pro 75 (11 990 ₽)</option>
+                  <option value="kc-master-65">KeyCraft Master 65 (9 490 ₽)</option>
+                  <option value="kc-ultra-tkl">KeyCraft Ultra TKL (9 340 ₽)</option>
+                  <option value="kc-retro-classic">KeyCraft Retro Classic (8 790 ₽)</option>
+                  <option value="switches-red">Свитчи Linear Red 70 шт (2 490 ₽)</option>
+                  <option value="keycaps-gradient">Кейкапы Gradient Wave PBT (3 290 ₽)</option>
+                  <option value="custom-assembly">Индивидуальная кастомная сборка под ключ</option>
+                </select>
+              </div>
+
+              <!-- Поле 5: Способ доставки -->
+              <div class="order-form__field">
+                <label for="order-delivery-method" class="order-form__label">Способ получения</label>
+                <select id="order-delivery-method" name="delivery_method" class="order-form__select">
+                  <option value="cdek_pvz">СДЭК: пункт выдачи (от 250 ₽)</option>
+                  <option value="cdek_courier">СДЭК: курьер до двери (от 450 ₽)</option>
+                  <option value="yandex">Яндекс Доставка по Москве (в день заказа)</option>
+                  <option value="pickup">Самовывоз из шоурума (бесплатно)</option>
+                </select>
+              </div>
+
+              <!-- Поле 6: Адрес доставки -->
+              <div class="order-form__field">
+                <label for="order-delivery-address" class="order-form__label">Город и адрес доставки</label>
+                <input 
+                  type="text" 
+                  id="order-delivery-address" 
+                  name="delivery_address" 
+                  class="order-form__input" 
+                  placeholder="г. Москва, ул. Ленина, д. 10, кв. 5"
+                >
+              </div>
+
+              <!-- Поле 7: Комментарий к заявке -->
+              <div class="order-form__field order-form__field--full">
+                <label for="order-user-comment" class="order-form__label">Комментарий к заявке или пожелания по сборке</label>
+                <textarea 
+                  id="order-user-comment" 
+                  name="user_comment" 
+                  class="order-form__textarea" 
+                  placeholder="Например: желательна гравировка кириллицы на кейкапах или проверка свитчей перед отправкой."
+                ></textarea>
+              </div>
+
+              <!-- Поле 8: Согласие на обработку данных (чекбокс) -->
+              <div class="order-form__field order-form__field--full">
+                <label for="order-consent-checkbox" class="order-form__checkbox-label">
+                  <input 
+                    type="checkbox" 
+                    id="order-consent-checkbox" 
+                    name="consent_agreement" 
+                    class="order-form__checkbox" 
+                    required
+                  >
+                  <span>
+                    Подтверждаю согласие на обработку персональных данных в соответствии с условиями сервиса <span class="order-form__required">*</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Кнопки действий -->
+            <div class="order-form__actions">
+              <button type="submit" class="button button--primary">Отправить заявку</button>
+              <a href="catalog.html" class="button button--secondary">Вернуться в каталог</a>
+            </div>
+
+          </form>
+        </section>
+
+        <!-- Боковая информационная панель (aside) -->
+        <aside class="order-summary" aria-label="Сводка заказа">
+          <h2 class="order-summary__title">Предварительный расчет</h2>
+          
+          <div class="order-summary__item">
+            <span>Клавиатура KeyCraft Pro 75:</span>
+            <strong>11 990 ₽</strong>
+          </div>
+          <div class="order-summary__item">
+            <span>Заводская смазка Krytox:</span>
+            <span>Включено</span>
+          </div>
+          <div class="order-summary__item">
+            <span>Шумоизоляция Gasket:</span>
+            <span>Включено</span>
+          </div>
+          <div class="order-summary__item">
+            <span>Доставка по тарифу СДЭК:</span>
+            <span>от 250 ₽</span>
+          </div>
+
+          <div class="order-summary__total">
+            <span>Итого к оплате:</span>
+            <span>12 240 ₽</span>
+          </div>
+
+          <div style="margin-top: var(--space-lg); font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.5;">
+            <p><strong>Порядок работы:</strong></p>
+            <p>1. Менеджер проверяет складской остаток и связывается с вами по телефону.</p>
+            <p>2. Согласуем удобный пункт выдачи или время приезда курьера.</p>
+            <p>3. Оплата заказа происходит при получении после осмотра коробки.</p>
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Подвал сайта -->
+  <footer id="contacts" class="site-footer">
+    <div class="container">
+      <div class="site-footer__inner">
+        <div class="site-footer__column">
+          <p class="site-footer__brand-title">KeyCraft</p>
+          <p class="site-footer__text">
+            Мастерская и магазин клавиатур с индивидуальной подгонкой стабилизаторов, смазкой свитчей и доставкой по всей России.
+          </p>
+        </div>
+
+        <div class="site-footer__column">
+          <h3 class="site-footer__title">Навигация</h3>
+          <ul class="site-footer__list">
+            <li><a href="index.html" class="site-footer__link">Главная страница</a></li>
+            <li><a href="catalog.html" class="site-footer__link">Каталог товаров</a></li>
+            <li><a href="product.html" class="site-footer__link">Флагманская модель</a></li>
+            <li><a href="order.html" class="site-footer__link">Оформление заявки</a></li>
+            <li><a href="contacts.html" class="site-footer__link">Контакты и адрес</a></li>
+          </ul>
+        </div>
+
+        <div class="site-footer__column">
+          <h3 class="site-footer__title">Быстрые якоря</h3>
+          <ul class="site-footer__list">
+            <li><a href="index.html#advantages" class="site-footer__link">Преимущества</a></li>
+            <li><a href="index.html#popular" class="site-footer__link">Популярные товары</a></li>
+            <li><a href="index.html#contacts" class="site-footer__link">Контакты подвала</a></li>
+          </ul>
+        </div>
+
+        <div class="site-footer__column">
+          <h3 class="site-footer__title">Связь с нами</h3>
+          <ul class="site-footer__list">
+            <li>Телефон: +7 (495) 820-13-25</li>
+            <li>Эл. почта: hello@keycraft-shop.ru</li>
+            <li>Адрес: г. Москва, ул. Спартаковская, д. 2, стр. 1</li>
+            <li>Режим: ежедневно с 10:00 до 21:00</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>© 2026 KeyCraft. Учебный проект по дисциплине «Фронтенд и бэкенд разработка». Студент: Панов А. А., группа ЭФБО-13-25.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Модальное окно быстрого заказа -->
+  <dialog id="quick-order-dialog" class="modal" aria-labelledby="modal-title">
+    <div class="modal__inner">
+      <div class="modal__header">
+        <h2 id="modal-title" class="modal__title">Быстрый заказ</h2>
+        <button type="button" class="modal__close" data-close-modal aria-label="Закрыть модальное окно">×</button>
+      </div>
+      <p class="modal__description">Оставьте контакты, и менеджер перезвонит для подтверждения деталей заказа в течение 15 минут.</p>
+      
+      <form action="order.html" method="get" class="order-form">
+        <div class="order-form__field">
+          <label for="modal-name" class="order-form__label">Ваше имя <span class="order-form__required">*</span></label>
+          <input type="text" id="modal-name" name="user_name" class="order-form__input" placeholder="Иван Иванов" required>
+        </div>
+
+        <div class="order-form__field">
+          <label for="modal-phone" class="order-form__label">Номер телефона <span class="order-form__required">*</span></label>
+          <input type="tel" id="modal-phone" name="user_phone" class="order-form__input" placeholder="+7 (999) 000-00-00" required>
+        </div>
+
+        <div class="order-form__field">
+          <label for="modal-product" class="order-form__label">Выбранный товар</label>
+          <select id="modal-product" name="product_name" class="order-form__select">
+            <option value="KeyCraft Pro 75">KeyCraft Pro 75 (11 990 ₽)</option>
+            <option value="KeyCraft Master 65">KeyCraft Master 65 (9 490 ₽)</option>
+            <option value="KeyCraft Ultra TKL">KeyCraft Ultra TKL (9 340 ₽)</option>
+            <option value="KeyCraft Retro Classic">KeyCraft Retro Classic (8 790 ₽)</option>
+            <option value="Линейные свитчи Red (70 шт)">Линейные свитчи Red (2 490 ₽)</option>
+            <option value="PBT Кейкапы Gradient Wave">PBT Кейкапы Gradient Wave (3 290 ₽)</option>
+          </select>
+        </div>
+
+        <div class="order-form__field">
+          <label for="modal-consent" class="order-form__checkbox-label">
+            <input type="checkbox" id="modal-consent" name="consent" class="order-form__checkbox" required>
+            <span>Согласен на обработку персональных данных</span>
+          </label>
+        </div>
+
+        <div class="order-form__actions">
+          <button type="submit" class="button button--primary button--full">Подтвердить заявку</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Кнопка «Наверх» -->
+  <button type="button" class="scroll-top-button" aria-label="Прокрутить страницу наверх">
+    <svg class="scroll-top-button__icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
