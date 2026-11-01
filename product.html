@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KeyCraft Pro 75: характеристики, цена и комплектация</title>
-  <meta name="description" content="Беспроводная механическая клавиатура KeyCraft Pro 75: гаскет-маунт, алюминиевый корпус, переключатели Hot-Swap и PBT-кейкапы.">
+  <title>Механическая клавиатура KeyCraft Pro 75 | KeyCraft</title>
+  <meta name="description" content="Флагманская механическая клавиатура KeyCraft Pro 75: беспроводной режим, корпус из анодированного алюминия, сокеты Hot-Swap и заводская смазка.">
+  <link rel="icon" href="favicon.ico">
+  <link rel="canonical" href="https://s4cbs.github.io/kr3-responsive-shop/product.html">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
@@ -15,11 +18,15 @@
     <div class="container site-header__inner">
       <div class="site-header__brand">
         <a href="index.html" class="site-header__logo" aria-label="KeyCraft на главную">
-          <img src="images/logo.svg" alt="Логотип KeyCraft" class="site-header__logo-img">
+          <img src="images/logo.svg" alt="Логотип KeyCraft" class="site-header__logo-img" width="160" height="38">
         </a>
       </div>
 
-      <nav class="site-nav" aria-label="Основное меню">
+      <nav class="site-nav" id="primary-nav" aria-label="Основное меню">
+        <div class="site-nav__header">
+          <span class="site-nav__title">Навигация</span>
+          <button type="button" class="site-nav__close-btn" id="menu-close-btn" aria-label="Закрыть меню">✕</button>
+        </div>
         <ul class="site-nav__list">
           <li class="site-nav__item">
             <a href="index.html" class="site-nav__link">Главная</a>
@@ -40,13 +47,25 @@
             <a href="contacts.html" class="site-nav__link">Контакты</a>
           </li>
         </ul>
+        <div class="site-nav__footer">
+          <button type="button" class="button button--primary button--full" data-open-modal="quick-order" data-product="KeyCraft Pro 75">Быстрая консультация</button>
+        </div>
       </nav>
 
       <div class="site-header__actions">
-        <button type="button" class="button button--outline" data-open-modal="quick-order">Консультация</button>
+        <button type="button" class="button button--outline" data-open-modal="quick-order" data-product="KeyCraft Pro 75">Консультация</button>
+        <button type="button" class="site-header__menu-toggle" id="menu-toggle-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Открыть навигационное меню">
+          <span class="site-header__menu-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
       </div>
     </div>
   </header>
+
+  <div class="site-nav-overlay" id="nav-overlay" aria-hidden="true"></div>
 
   <!-- Единственный main -->
   <main id="main-content" class="site-main">
@@ -57,15 +76,29 @@
         <ol class="breadcrumbs__list">
           <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
           <li class="breadcrumbs__item"><a href="catalog.html" class="breadcrumbs__link">Каталог</a></li>
+          <li class="breadcrumbs__item"><a href="catalog.html" class="breadcrumbs__link">Клавиатуры 75%</a></li>
           <li class="breadcrumbs__item"><span class="breadcrumbs__link--current">KeyCraft Pro 75</span></li>
         </ol>
       </nav>
 
-      <!-- Детальная карточка товара (изображение, описание, цена, кнопки) -->
+      <!-- Детальная карточка товара -->
       <article class="product-detail">
         <div class="product-detail__gallery">
           <span class="product-card__badge product-card__badge--hit product-detail__badge">Хит продаж</span>
-          <img src="images/product-1.svg" alt="Беспроводная клавиатура KeyCraft Pro 75" class="product-detail__image">
+          <picture>
+            <source type="image/webp" 
+                    srcset="images/product-1-480.webp 480w, images/product-1-800.webp 800w" 
+                    sizes="(max-width: 767px) 100vw, 500px">
+            <source type="image/png" 
+                    srcset="images/product-1-480.png 480w, images/product-1-800.png 800w" 
+                    sizes="(max-width: 767px) 100vw, 500px">
+            <img src="images/product-1.svg" 
+                 alt="Беспроводная клавиатура KeyCraft Pro 75" 
+                 class="product-detail__image" 
+                 width="480" 
+                 height="360" 
+                 fetchpriority="high">
+          </picture>
         </div>
 
         <div class="product-detail__info">
@@ -102,10 +135,10 @@
         </div>
       </article>
 
-      <!-- Обязательная таблица характеристик товара (caption, thead, tbody, th, td, CSS) -->
+      <!-- Обязательная таблица характеристик товара с карточной мобильной версией -->
       <section class="section" aria-labelledby="specs-heading">
         <div class="table-wrapper">
-          <table class="specs-table">
+          <table class="specs-table specs-table--responsive">
             <caption id="specs-heading" class="specs-table__caption">Технические характеристики KeyCraft Pro 75</caption>
             <thead>
               <tr>
@@ -163,14 +196,14 @@
         </div>
       </section>
 
-      <!-- Дополнительная таблица сравнения комплектаций (самостоятельная доработка) -->
+      <!-- Дополнительная таблица сравнения комплектаций (карточное отображение на мобильных) -->
       <section class="section" aria-labelledby="compare-heading">
         <div class="table-wrapper">
-          <table class="specs-table">
+          <table class="specs-table specs-table--compare">
             <caption id="compare-heading" class="specs-table__caption">Сравнение комплектаций KeyCraft Pro 75</caption>
             <thead>
               <tr>
-                <th scope="col">Опция комплекта</th>
+                <th scope="col" class="specs-table__label">Опция комплекта</th>
                 <th scope="col">Базовая (11 990 ₽)</th>
                 <th scope="col">Расширенная (13 490 ₽)</th>
                 <th scope="col">Кастомная сборка (15 990 ₽)</th>
@@ -179,27 +212,27 @@
             <tbody>
               <tr>
                 <th scope="row" class="specs-table__label">Свитчи в комплекте</th>
-                <td>KeyCraft Red (смазаны на заводе)</td>
-                <td>KeyCraft Red + 10 запасных свитчей</td>
-                <td>Выбор любых свитчей + ручная смазка</td>
+                <td data-label="Базовая (11 990 ₽)">KeyCraft Red (смазаны на заводе)</td>
+                <td data-label="Расширенная (13 490 ₽)">KeyCraft Red + 10 запасных свитчей</td>
+                <td data-label="Кастом (15 990 ₽)">Выбор любых свитчей + ручная смазка</td>
               </tr>
               <tr>
                 <th scope="row" class="specs-table__label">Шумоизоляция корпуса</th>
-                <td>Двойная силиконовая</td>
-                <td>Двойная + тейп-мод платы</td>
-                <td>Тройная Poron + кастомный фоам</td>
+                <td data-label="Базовая (11 990 ₽)">Двойная силиконовая</td>
+                <td data-label="Расширенная (13 490 ₽)">Двойная + тейп-мод платы</td>
+                <td data-label="Кастом (15 990 ₽)">Тройная Poron + кастомный фоам</td>
               </tr>
               <tr>
                 <th scope="row" class="specs-table__label">Инструменты сборки</th>
-                <td>Стандартный пуллер свитчей</td>
-                <td>Двойной металлический пуллер</td>
-                <td>Премиум пуллер + кисть для смазки</td>
+                <td data-label="Базовая (11 990 ₽)">Стандартный пуллер свитчей</td>
+                <td data-label="Расширенная (13 490 ₽)">Двойной металлический пуллер</td>
+                <td data-label="Кастом (15 990 ₽)">Премиум пуллер + кисть для смазки</td>
               </tr>
               <tr>
                 <th scope="row" class="specs-table__label">Подставка под запястья</th>
-                <td>Нет в комплекте</td>
-                <td>Акриловая матовая</td>
-                <td>Подставка из массива ореха</td>
+                <td data-label="Базовая (11 990 ₽)">Нет в комплекте</td>
+                <td data-label="Расширенная (13 490 ₽)">Акриловая матовая</td>
+                <td data-label="Кастом (15 990 ₽)">Подставка из массива ореха</td>
               </tr>
             </tbody>
           </table>
@@ -217,7 +250,20 @@
           <article class="product-card">
             <span class="product-card__badge product-card__badge--hit">Популярное</span>
             <div class="product-card__image-box">
-              <img src="images/product-5.svg" alt="Набор свитчей Linear Red 70 шт" class="product-card__image">
+              <picture>
+                <source type="image/webp" 
+                        srcset="images/product-5-480.webp 480w, images/product-5-800.webp 800w" 
+                        sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                <source type="image/png" 
+                        srcset="images/product-5-480.png 480w, images/product-5-800.png 800w" 
+                        sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                <img src="images/product-5.svg" 
+                     alt="Набор свитчей Linear Red 70 шт" 
+                     class="product-card__image" 
+                     width="320" 
+                     height="240" 
+                     loading="lazy">
+              </picture>
             </div>
             <div class="product-card__body">
               <span class="product-card__category">Переключатели</span>
@@ -229,6 +275,7 @@
                 </div>
                 <div class="button-group">
                   <a href="product.html" class="button button--primary">Подробнее</a>
+                  <button type="button" class="button button--outline" data-open-modal="quick-order" data-product="Свитчи Linear Red (70 шт)">Купить</button>
                 </div>
               </div>
             </div>
@@ -237,37 +284,66 @@
           <article class="product-card">
             <span class="product-card__badge product-card__badge--new">Новинка</span>
             <div class="product-card__image-box">
-              <img src="images/product-6.svg" alt="Кейкапы Gradient Wave PBT" class="product-card__image">
+              <picture>
+                <source type="image/webp" 
+                        srcset="images/product-6-480.webp 480w, images/product-6-800.webp 800w" 
+                        sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                <source type="image/png" 
+                        srcset="images/product-6-480.png 480w, images/product-6-800.png 800w" 
+                        sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                <img src="images/product-6.svg" 
+                     alt="Кейкапы Gradient Wave PBT" 
+                     class="product-card__image" 
+                     width="320" 
+                     height="240" 
+                     loading="lazy">
+              </picture>
             </div>
             <div class="product-card__body">
               <span class="product-card__category">Кейкапы</span>
               <h3 class="product-card__title"><a href="product.html">Кейкапы Gradient Wave PBT</a></h3>
-              <p class="product-card__description">Толстый PBT-пластик с приятной матовой фактурой и стойкими символами.</p>
+              <p class="product-card__description">Набор из 134 клавиш профиля Cherry с сублимационной печатью символов.</p>
               <div class="product-card__footer">
                 <div class="product-card__price-box">
                   <span class="product-card__price">3 290 ₽</span>
                 </div>
                 <div class="button-group">
                   <a href="product.html" class="button button--primary">Подробнее</a>
+                  <button type="button" class="button button--outline" data-open-modal="quick-order" data-product="Кейкапы Gradient Wave PBT">Купить</button>
                 </div>
               </div>
             </div>
           </article>
 
           <article class="product-card">
+            <span class="product-card__badge product-card__badge--new">Компакт</span>
             <div class="product-card__image-box">
-              <img src="images/product-2.svg" alt="Клавиатура KeyCraft Master 65" class="product-card__image">
+              <picture>
+                <source type="image/webp" 
+                        srcset="images/product-2-480.webp 480w, images/product-2-800.webp 800w" 
+                        sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                <source type="image/png" 
+                        srcset="images/product-2-480.png 480w, images/product-2-800.png 800w" 
+                        sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                <img src="images/product-2.svg" 
+                     alt="Клавиатура KeyCraft Master 65" 
+                     class="product-card__image" 
+                     width="320" 
+                     height="240" 
+                     loading="lazy">
+              </picture>
             </div>
             <div class="product-card__body">
               <span class="product-card__category">Клавиатуры 65%</span>
-              <h3 class="product-card__title"><a href="product.html">KeyCraft Master 65</a></h3>
-              <p class="product-card__description">Компактная клавиатура в корпусе из массива ореха для аккуратного рабочего места.</p>
+              <h3 class="product-card__title"><a href="product.html">KeyCraft Master 65 Walnut</a></h3>
+              <p class="product-card__description">Основа из натурального темного ореха и компактный формат для рабочих поездок.</p>
               <div class="product-card__footer">
                 <div class="product-card__price-box">
                   <span class="product-card__price">9 490 ₽</span>
                 </div>
                 <div class="button-group">
                   <a href="product.html" class="button button--primary">Подробнее</a>
+                  <button type="button" class="button button--outline" data-open-modal="quick-order" data-product="KeyCraft Master 65">Купить</button>
                 </div>
               </div>
             </div>
@@ -327,7 +403,7 @@
   </footer>
 
   <!-- Модальное окно быстрого заказа -->
-  <dialog id="quick-order-dialog" class="modal" aria-labelledby="modal-title">
+  <dialog id="quick-order-dialog" class="modal" aria-labelledby="modal-title" aria-modal="true">
     <div class="modal__inner">
       <div class="modal__header">
         <h2 id="modal-title" class="modal__title">Быстрый заказ</h2>
@@ -338,12 +414,12 @@
       <form action="order.html" method="get" class="order-form">
         <div class="order-form__field">
           <label for="modal-name" class="order-form__label">Ваше имя <span class="order-form__required">*</span></label>
-          <input type="text" id="modal-name" name="user_name" class="order-form__input" placeholder="Иван Иванов" required>
+          <input type="text" id="modal-name" name="user_name" class="order-form__input" placeholder="Иван Иванов" autocomplete="name" required>
         </div>
 
         <div class="order-form__field">
           <label for="modal-phone" class="order-form__label">Номер телефона <span class="order-form__required">*</span></label>
-          <input type="tel" id="modal-phone" name="user_phone" class="order-form__input" placeholder="+7 (999) 000-00-00" required>
+          <input type="tel" id="modal-phone" name="user_phone" class="order-form__input" placeholder="+7 (999) 000-00-00" autocomplete="tel" required>
         </div>
 
         <div class="order-form__field">
@@ -360,7 +436,7 @@
 
         <div class="order-form__field">
           <label for="modal-consent" class="order-form__checkbox-label">
-            <input type="checkbox" id="modal-consent" name="consent" class="order-form__checkbox" required>
+            <input type="checkbox" id="modal-consent" name="consent" class="order-form__checkbox" required checked>
             <span>Согласен на обработку персональных данных</span>
           </label>
         </div>
@@ -374,11 +450,11 @@
 
   <!-- Кнопка «Наверх» -->
   <button type="button" class="scroll-top-button" aria-label="Прокрутить страницу наверх">
-    <svg class="scroll-top-button__icon" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+    <svg class="scroll-top-button__icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
     </svg>
   </button>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

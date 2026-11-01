@@ -1,0 +1,896 @@
+/* ==========================================================================
+   responsive.css — Адаптивные стили и медиазапросы проекта KeyCraft
+   Контрольная работа №3: Адаптивная вёрстка и доступность
+   Подход: Mobile First + прогрессивное улучшение (Progressive Enhancement)
+   Подключается строго после style.css на всех страницах!
+   ========================================================================== */
+
+/* ==========================================================================
+   1. Базовые адаптивные правила и защита от горизонтального скролла
+   ========================================================================== */
+
+/* Гарантия отсутствия горизонтального переполнения страницы */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Обязательное правило для отзывчивых изображений и медиа */
+img,
+video,
+picture,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Перенос длинных слов и ссылок для исключения вылета за пределы экрана */
+h1, h2, h3, h4, h5, h6,
+p, span, a, label, th, td, li {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+/* Минимальный размер области касания (touch target >= 44x44px) для мобильных устройств */
+.button,
+.site-nav__link,
+.catalog-filters__label,
+.order-form__input,
+.order-form__select,
+.order-form__checkbox-label,
+.pagination__link,
+.site-header__menu-toggle,
+.site-nav__close-btn,
+.catalog-filters__toggle {
+  min-height: 44px;
+}
+
+.button {
+  padding: 12px 20px;
+}
+
+/* Контейнер с адаптивными боковыми отступами */
+.container {
+  width: 100%;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+/* ==========================================================================
+   2. Адаптивная мобильная навигация (Drawer / Гамбургер-меню)
+   ========================================================================== */
+
+/* Кнопка открытия мобильного меню */
+.site-header__menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  color: var(--color-text);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  z-index: 101;
+}
+
+.site-header__menu-toggle:hover {
+  background-color: var(--color-surface-alt);
+  border-color: var(--color-border-hover);
+}
+
+.site-header__menu-toggle:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Иконка гамбургера из 3 линий с плавной трансформацией */
+.site-header__menu-icon {
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 16px;
+}
+
+.site-header__menu-icon span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease, top 0.25s ease;
+}
+
+.site-header__menu-icon span:nth-child(1) {
+  top: 0;
+}
+
+.site-header__menu-icon span:nth-child(2) {
+  top: 7px;
+}
+
+.site-header__menu-icon span:nth-child(3) {
+  top: 14px;
+}
+
+/* Состояние открытого меню: превращение в крестик */
+.site-header__menu-toggle[aria-expanded="true"] .site-header__menu-icon span:nth-child(1) {
+  top: 7px;
+  transform: rotate(45deg);
+}
+
+.site-header__menu-toggle[aria-expanded="true"] .site-header__menu-icon span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.site-header__menu-toggle[aria-expanded="true"] .site-header__menu-icon span:nth-child(3) {
+  top: 7px;
+  transform: rotate(-45deg);
+}
+
+/* Полупрозрачная подложка затемнения страницы при открытом меню */
+.site-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.site-nav-overlay--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Блокировка прокрутки основного тела страницы при открытом меню */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Мобильная панель навигации (Off-canvas Drawer) */
+@media (max-width: 1023px) {
+  .site-header__inner {
+    gap: var(--space-md);
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 290px;
+    max-width: 85vw;
+    height: 100vh;
+    background-color: var(--color-surface);
+    box-shadow: -4px 0 24px rgba(15, 23, 42, 0.15);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-xl) var(--space-md) var(--space-lg);
+    overflow-y: auto;
+    transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .site-nav--open {
+    right: 0;
+  }
+
+  .site-nav__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: var(--space-md);
+    margin-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .site-nav__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .site-nav__close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: 1.25rem;
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  .site-nav__close-btn:hover {
+    background-color: var(--color-surface-alt);
+  }
+
+  .site-nav__close-btn:focus-visible {
+    outline: 3px solid var(--color-primary);
+  }
+
+  .site-nav__list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-xs);
+  }
+
+  .site-nav__link {
+    display: flex;
+    align-items: center;
+    padding: 12px var(--space-md);
+    border-radius: var(--radius-md);
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .site-nav__link--active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+  }
+
+  .site-nav__footer {
+    margin-top: auto;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+  }
+}
+
+/* Десктопная навигация: сброс мобильного дровера */
+@media (min-width: 1024px) {
+  .site-header__menu-toggle,
+  .site-nav-overlay,
+  .site-nav__header,
+  .site-nav__footer {
+    display: none !important;
+  }
+
+  .site-nav {
+    position: static;
+    width: auto;
+    height: auto;
+    box-shadow: none;
+    padding: 0;
+    background: transparent;
+    display: block;
+    overflow: visible;
+  }
+
+  .site-nav__list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .site-nav__link {
+    padding: var(--space-sm) var(--space-md);
+  }
+}
+
+/* ==========================================================================
+   3. Адаптивность Hero-блока
+   ========================================================================== */
+
+/* Мобильный экран: стек в 1 колонку, центрирование и оптимизация отступов */
+.hero {
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-xl);
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.hero__content {
+  text-align: center;
+}
+
+.hero__title {
+  font-size: clamp(1.75rem, 5vw + 0.5rem, 2.75rem);
+  line-height: 1.25;
+  margin-bottom: var(--space-md);
+}
+
+.hero__description {
+  font-size: clamp(0.95rem, 2vw + 0.5rem, 1.15rem);
+  margin-bottom: var(--space-lg);
+}
+
+.hero__actions {
+  justify-content: center;
+}
+
+.hero__image-wrapper {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__image {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(15, 23, 42, 0.12));
+}
+
+/* Планшет и десктоп: 2 колонки */
+@media (min-width: 768px) {
+  .hero {
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-2xl);
+  }
+
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: var(--space-2xl);
+  }
+
+  .hero__content {
+    text-align: left;
+  }
+
+  .hero__actions {
+    justify-content: flex-start;
+  }
+
+  .hero__image-wrapper {
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================================
+   4. Адаптивность блока преимуществ (Features)
+   ========================================================================== */
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 600px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+/* ==========================================================================
+   5. Адаптивность каталога и бокового фильтра (Улучшенный сценарий)
+   ========================================================================== */
+
+/* Кнопка сворачивания/разворачивания фильтров на мобильных экранах */
+.catalog-filters__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  cursor: pointer;
+  margin-bottom: var(--space-md);
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.catalog-filters__toggle:hover {
+  background-color: var(--color-surface-alt);
+  border-color: var(--color-border-hover);
+}
+
+.catalog-filters__toggle:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.catalog-filters__toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.catalog-filters__toggle[aria-expanded="true"] .catalog-filters__toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* Мобильный экран: фильтры складываются в аккордеон */
+@media (max-width: 1023px) {
+  .catalog-layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .catalog-filters {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .catalog-filters__title {
+    display: none;
+  }
+
+  .catalog-filters__form {
+    display: none;
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .catalog-filters__form--expanded {
+    display: block;
+  }
+
+  .catalog-filters__group {
+    margin-bottom: var(--space-md);
+  }
+
+  .catalog-filters__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+}
+
+/* Десктоп: боковая липкая колонка */
+@media (min-width: 1024px) {
+  .catalog-filters__toggle {
+    display: none !important;
+  }
+
+  .catalog-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  .catalog-filters {
+    position: sticky;
+    top: var(--space-xl);
+  }
+
+  .catalog-filters__form {
+    display: block !important;
+  }
+}
+
+/* Тулбар каталога (счетчик и сортировка) */
+.catalog-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 540px) {
+  .catalog-toolbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.catalog-toolbar__select {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+}
+
+@media (min-width: 540px) {
+  .catalog-toolbar__select {
+    width: auto;
+  }
+}
+
+/* Сетка карточек товаров */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 600px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .catalog-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+/* Адаптивная карточка товара */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+@media (hover: hover) {
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-border-hover);
+  }
+}
+
+.product-card__footer {
+  margin-top: auto;
+  padding-top: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+@media (min-width: 380px) {
+  .product-card__footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* ==========================================================================
+   6. Адаптивность страницы товара (product.html)
+   ========================================================================== */
+
+.product-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.product-detail__gallery {
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .product-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .product-detail__gallery {
+    max-width: 100%;
+    position: sticky;
+    top: var(--space-xl);
+  }
+}
+
+.product-detail__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+@media (min-width: 440px) {
+  .product-detail__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+/* ==========================================================================
+   7. Адаптивные таблицы характеристик (Скролл + Карточное представление)
+   ========================================================================== */
+
+/* Базовый контейнер горизонтальной прокрутки */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: var(--space-xl);
+  border-radius: var(--radius-md);
+}
+
+/* Карточное адаптивное представление таблицы характеристик на экранах <= 640px */
+@media (max-width: 640px) {
+  .specs-table--responsive,
+  .specs-table--responsive tbody,
+  .specs-table--responsive tr,
+  .specs-table--responsive th,
+  .specs-table--responsive td {
+    display: block;
+    width: 100%;
+  }
+
+  .specs-table--responsive thead {
+    display: none;
+  }
+
+  .specs-table--responsive tr {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  }
+
+  .specs-table--responsive th.specs-table__label {
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    border: none;
+    padding: 0 0 var(--space-xs) 0;
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .specs-table--responsive td.specs-table__value {
+    color: var(--color-text);
+    border: none;
+    padding: 0;
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  /* Карточное представление таблицы сравнения комплектаций */
+  .specs-table--compare,
+  .specs-table--compare tbody,
+  .specs-table--compare tr,
+  .specs-table--compare th,
+  .specs-table--compare td {
+    display: block;
+    width: 100%;
+  }
+
+  .specs-table--compare thead {
+    display: none;
+  }
+
+  .specs-table--compare tr {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .specs-table--compare th.specs-table__label {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-sm);
+    border: none;
+  }
+
+  .specs-table--compare td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) 0;
+    border-bottom: 1px dashed var(--color-border);
+    font-size: 0.92rem;
+    text-align: right;
+  }
+
+  .specs-table--compare td:last-child {
+    border-bottom: none;
+  }
+
+  .specs-table--compare td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-align: left;
+    flex-shrink: 0;
+    max-width: 48%;
+  }
+}
+
+/* ==========================================================================
+   8. Адаптивность страницы заказа и форм (order.html)
+   ========================================================================== */
+
+.order-page-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 1024px) {
+  .order-page-layout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  .order-summary {
+    position: sticky;
+    top: var(--space-xl);
+  }
+}
+
+/* Сетка полей формы: 1 колонка на мобильном, 2 колонки на десктопе */
+.order-form__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .order-form__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .order-form__field--full {
+    grid-column: 1 / -1;
+  }
+}
+
+.order-form__input,
+.order-form__select {
+  width: 100%;
+  font-size: 16px; /* Предотвращает нежелательный автозум в Safari на iOS */
+}
+
+/* ==========================================================================
+   9. Адаптивность страницы контактов (contacts.html)
+   ========================================================================== */
+
+.contacts-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 860px) {
+  .contacts-layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+}
+
+/* ==========================================================================
+   10. Адаптивность модального окна (<dialog>)
+   ========================================================================== */
+
+.modal-dialog {
+  width: 90%;
+  max-width: 520px;
+  max-height: 90vh;
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  background-color: var(--color-surface);
+  overflow-y: auto;
+}
+
+.modal-dialog::backdrop {
+  background-color: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.modal-dialog__body {
+  padding: var(--space-lg);
+}
+
+@media (max-width: 480px) {
+  .modal-dialog__body {
+    padding: var(--space-md);
+  }
+
+  .modal-dialog__title {
+    font-size: 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   11. Адаптивность подвала (Footer)
+   ========================================================================== */
+
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 600px) {
+  .site-footer__inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-footer__inner {
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+  }
+}
+
+/* ==========================================================================
+   12. Специальные возможности (A11y) и режим пониженного движения
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Стили печати для сохранения удобства чтения на бумаге */
+@media print {
+  .site-header,
+  .site-footer,
+  .scroll-top-button,
+  .site-header__menu-toggle,
+  .catalog-filters__toggle,
+  .modal-dialog {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+}

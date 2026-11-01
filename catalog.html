@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Каталог клавиатур и аксессуаров | KeyCraft</title>
-  <meta name="description" content="Каталог механических клавиатур, переключателей и PBT кейкапов. Фильтры по форм-фактору, типу подключения и наличию.">
+  <title>Каталог механических клавиатур и аксессуаров | KeyCraft</title>
+  <meta name="description" content="Полный каталог механических клавиатур 65%, 75%, TKL, переключателей и PBT-кейкапов KeyCraft. Фильтры по параметрам и быстрая доставка.">
+  <link rel="icon" href="favicon.ico">
+  <link rel="canonical" href="https://s4cbs.github.io/kr3-responsive-shop/catalog.html">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
@@ -15,11 +18,15 @@
     <div class="container site-header__inner">
       <div class="site-header__brand">
         <a href="index.html" class="site-header__logo" aria-label="KeyCraft на главную">
-          <img src="images/logo.svg" alt="Логотип KeyCraft" class="site-header__logo-img">
+          <img src="images/logo.svg" alt="Логотип KeyCraft" class="site-header__logo-img" width="160" height="38">
         </a>
       </div>
 
-      <nav class="site-nav" aria-label="Основное меню">
+      <nav class="site-nav" id="primary-nav" aria-label="Основное меню">
+        <div class="site-nav__header">
+          <span class="site-nav__title">Навигация</span>
+          <button type="button" class="site-nav__close-btn" id="menu-close-btn" aria-label="Закрыть меню">✕</button>
+        </div>
         <ul class="site-nav__list">
           <li class="site-nav__item">
             <a href="index.html" class="site-nav__link">Главная</a>
@@ -40,15 +47,27 @@
             <a href="contacts.html" class="site-nav__link">Контакты</a>
           </li>
         </ul>
+        <div class="site-nav__footer">
+          <button type="button" class="button button--primary button--full" data-open-modal="quick-order" data-product="Консультация">Быстрая консультация</button>
+        </div>
       </nav>
 
       <div class="site-header__actions">
-        <button type="button" class="button button--outline" data-open-modal="quick-order">Консультация</button>
+        <button type="button" class="button button--outline" data-open-modal="quick-order" data-product="Консультация">Консультация</button>
+        <button type="button" class="site-header__menu-toggle" id="menu-toggle-btn" aria-expanded="false" aria-controls="primary-nav" aria-label="Открыть навигационное меню">
+          <span class="site-header__menu-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- Единственный main -->
+  <div class="site-nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <!-- Основное содержимое страницы -->
   <main id="main-content" class="site-main">
     <div class="container">
 
@@ -65,14 +84,19 @@
         <p class="section__description">Выбирайте готовые модели в сборе, комплекты тихих свитчей или наборы долговечных кейкапов</p>
       </div>
 
-      <!-- Сложная раскладка страницы каталога с фильтрами (aside + section, CSS Grid) -->
+      <!-- Раскладка страницы каталога с фильтрами -->
       <div class="catalog-layout">
         
-        <!-- Статический блок фильтров в теге aside (позиционирование sticky) -->
+        <!-- Боковой блок фильтров (Aside: липкий на десктопе, аккордеон на мобильных) -->
         <aside class="catalog-filters" aria-label="Фильтры товаров">
+          <button type="button" class="catalog-filters__toggle" id="filter-toggle-btn" aria-expanded="false" aria-controls="catalog-filters-form">
+            <span>Параметры и фильтры</span>
+            <span class="catalog-filters__toggle-icon" aria-hidden="true">▼</span>
+          </button>
+
           <h2 class="catalog-filters__title">Фильтры</h2>
 
-          <form action="catalog.html" method="get">
+          <form action="catalog.html" method="get" id="catalog-filters-form" class="catalog-filters__form">
             <!-- Группа 1: Категории -->
             <div class="catalog-filters__group">
               <h3 class="catalog-filters__group-title">Категория</h3>
@@ -180,7 +204,7 @@
           </form>
         </aside>
 
-        <!-- Основная колонка с карточками товаров (section, CSS Grid) -->
+        <!-- Колонка с карточками товаров -->
         <section class="catalog-layout__content" aria-label="Список товаров каталога">
           
           <!-- Панель сортировки и счетчик -->
@@ -197,14 +221,27 @@
             </div>
           </div>
 
-          <!-- Сетка карточек товаров (CSS Grid, БЭМ) -->
+          <!-- Сетка карточек товаров -->
           <div class="catalog-grid">
             
             <!-- Товар 1 -->
             <article class="product-card">
               <span class="product-card__badge product-card__badge--hit">Хит продаж</span>
               <div class="product-card__image-box">
-                <img src="images/product-1.svg" alt="Клавиатура KeyCraft Pro 75" class="product-card__image">
+                <picture>
+                  <source type="image/webp" 
+                          srcset="images/product-1-480.webp 480w, images/product-1-800.webp 800w" 
+                          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                  <source type="image/png" 
+                          srcset="images/product-1-480.png 480w, images/product-1-800.png 800w" 
+                          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                  <img src="images/product-1.svg" 
+                       alt="Клавиатура KeyCraft Pro 75" 
+                       class="product-card__image" 
+                       width="320" 
+                       height="240" 
+                       loading="lazy">
+                </picture>
               </div>
               <div class="product-card__body">
                 <span class="product-card__category">Клавиатуры 75%</span>
@@ -230,7 +267,20 @@
             <article class="product-card">
               <span class="product-card__badge product-card__badge--new">Новинка</span>
               <div class="product-card__image-box">
-                <img src="images/product-2.svg" alt="Клавиатура KeyCraft Master 65" class="product-card__image">
+                <picture>
+                  <source type="image/webp" 
+                          srcset="images/product-2-480.webp 480w, images/product-2-800.webp 800w" 
+                          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                  <source type="image/png" 
+                          srcset="images/product-2-480.png 480w, images/product-2-800.png 800w" 
+                          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                  <img src="images/product-2.svg" 
+                       alt="Клавиатура KeyCraft Master 65" 
+                       class="product-card__image" 
+                       width="320" 
+                       height="240" 
+                       loading="lazy">
+                </picture>
               </div>
               <div class="product-card__body">
                 <span class="product-card__category">Клавиатуры 65%</span>
@@ -256,7 +306,20 @@
             <article class="product-card product-card--discount">
               <span class="product-card__badge product-card__badge--discount">Скидка 15%</span>
               <div class="product-card__image-box">
-                <img src="images/product-3.svg" alt="Клавиатура KeyCraft Ultra TKL" class="product-card__image">
+                <picture>
+                  <source type="image/webp" 
+                          srcset="images/product-3-480.webp 480w, images/product-3-800.webp 800w" 
+                          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                  <source type="image/png" 
+                          srcset="images/product-3-480.png 480w, images/product-3-800.png 800w" 
+                          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                  <img src="images/product-3.svg" 
+                       alt="Клавиатура KeyCraft Ultra TKL" 
+                       class="product-card__image" 
+                       width="320" 
+                       height="240" 
+                       loading="lazy">
+                </picture>
               </div>
               <div class="product-card__body">
                 <span class="product-card__category">Клавиатуры TKL (80%)</span>
@@ -282,7 +345,20 @@
             <!-- Товар 4 -->
             <article class="product-card">
               <div class="product-card__image-box">
-                <img src="images/product-4.svg" alt="Клавиатура KeyCraft Retro Classic" class="product-card__image">
+                <picture>
+                  <source type="image/webp" 
+                          srcset="images/product-4-480.webp 480w, images/product-4-800.webp 800w" 
+                          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                  <source type="image/png" 
+                          srcset="images/product-4-480.png 480w, images/product-4-800.png 800w" 
+                          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                  <img src="images/product-4.svg" 
+                       alt="Клавиатура KeyCraft Retro Classic" 
+                       class="product-card__image" 
+                       width="320" 
+                       height="240" 
+                       loading="lazy">
+                </picture>
               </div>
               <div class="product-card__body">
                 <span class="product-card__category">Классические клавиатуры</span>
@@ -308,7 +384,20 @@
             <article class="product-card">
               <span class="product-card__badge product-card__badge--hit">Популярное</span>
               <div class="product-card__image-box">
-                <img src="images/product-5.svg" alt="Набор свитчей Linear Red 70 шт" class="product-card__image">
+                <picture>
+                  <source type="image/webp" 
+                          srcset="images/product-5-480.webp 480w, images/product-5-800.webp 800w" 
+                          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                  <source type="image/png" 
+                          srcset="images/product-5-480.png 480w, images/product-5-800.png 800w" 
+                          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                  <img src="images/product-5.svg" 
+                       alt="Набор свитчей Linear Red 70 шт" 
+                       class="product-card__image" 
+                       width="320" 
+                       height="240" 
+                       loading="lazy">
+                </picture>
               </div>
               <div class="product-card__body">
                 <span class="product-card__category">Переключатели</span>
@@ -334,7 +423,20 @@
             <article class="product-card">
               <span class="product-card__badge product-card__badge--new">Новинка</span>
               <div class="product-card__image-box">
-                <img src="images/product-6.svg" alt="Кейкапы Gradient Wave PBT" class="product-card__image">
+                <picture>
+                  <source type="image/webp" 
+                          srcset="images/product-6-480.webp 480w, images/product-6-800.webp 800w" 
+                          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                  <source type="image/png" 
+                          srcset="images/product-6-480.png 480w, images/product-6-800.png 800w" 
+                          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 360px">
+                  <img src="images/product-6.svg" 
+                       alt="Кейкапы Gradient Wave PBT" 
+                       class="product-card__image" 
+                       width="320" 
+                       height="240" 
+                       loading="lazy">
+                </picture>
               </div>
               <div class="product-card__body">
                 <span class="product-card__category">Кейкапы</span>
@@ -413,7 +515,7 @@
   </footer>
 
   <!-- Модальное окно быстрого заказа -->
-  <dialog id="quick-order-dialog" class="modal" aria-labelledby="modal-title">
+  <dialog id="quick-order-dialog" class="modal" aria-labelledby="modal-title" aria-modal="true">
     <div class="modal__inner">
       <div class="modal__header">
         <h2 id="modal-title" class="modal__title">Быстрый заказ</h2>
@@ -424,12 +526,12 @@
       <form action="order.html" method="get" class="order-form">
         <div class="order-form__field">
           <label for="modal-name" class="order-form__label">Ваше имя <span class="order-form__required">*</span></label>
-          <input type="text" id="modal-name" name="user_name" class="order-form__input" placeholder="Иван Иванов" required>
+          <input type="text" id="modal-name" name="user_name" class="order-form__input" placeholder="Иван Иванов" autocomplete="name" required>
         </div>
 
         <div class="order-form__field">
           <label for="modal-phone" class="order-form__label">Номер телефона <span class="order-form__required">*</span></label>
-          <input type="tel" id="modal-phone" name="user_phone" class="order-form__input" placeholder="+7 (999) 000-00-00" required>
+          <input type="tel" id="modal-phone" name="user_phone" class="order-form__input" placeholder="+7 (999) 000-00-00" autocomplete="tel" required>
         </div>
 
         <div class="order-form__field">
@@ -446,7 +548,7 @@
 
         <div class="order-form__field">
           <label for="modal-consent" class="order-form__checkbox-label">
-            <input type="checkbox" id="modal-consent" name="consent" class="order-form__checkbox" required>
+            <input type="checkbox" id="modal-consent" name="consent" class="order-form__checkbox" required checked>
             <span>Согласен на обработку персональных данных</span>
           </label>
         </div>
@@ -460,11 +562,11 @@
 
   <!-- Кнопка «Наверх» -->
   <button type="button" class="scroll-top-button" aria-label="Прокрутить страницу наверх">
-    <svg class="scroll-top-button__icon" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+    <svg class="scroll-top-button__icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
     </svg>
   </button>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

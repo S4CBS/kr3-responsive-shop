@@ -6,23 +6,23 @@
   --color-bg: #f8fafc;
   --color-surface: #ffffff;
   --color-surface-alt: #f1f5f9;
-  --color-text: #1e293b;
-  --color-text-muted: #64748b;
-  --color-border: #e2e8f0;
-  --color-border-hover: #cbd5e1;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+  --color-border: #cbd5e1;
+  --color-border-hover: #94a3b8;
 
   /* Акцентные цвета бренда */
-  --color-primary: #0057b8;
-  --color-primary-dark: #003f86;
+  --color-primary: #004da8;
+  --color-primary-dark: #003774;
   --color-primary-light: #eff6ff;
   --color-accent: #0284c7;
 
   /* Вспомогательные статусные цвета */
-  --color-danger: #b00020;
-  --color-success: #16a34a;
-  --color-badge-hit: #d97706;
-  --color-badge-new: #059669;
-  --color-badge-discount: #dc2626;
+  --color-danger: #991b1b;
+  --color-success: #166534;
+  --color-badge-hit: #92400e;
+  --color-badge-new: #065f46;
+  --color-badge-discount: #991b1b;
 
   /* Система отступов */
   --space-xs: 4px;
@@ -1253,7 +1253,7 @@ a:hover {
    ========================================================================== */
 .site-footer {
   background-color: #0f172a;
-  color: #94a3b8;
+  color: #cbd5e1;
   padding-top: var(--space-2xl);
   padding-bottom: var(--space-xl);
   border-top: 1px solid #1e293b;
@@ -1294,7 +1294,7 @@ a:hover {
 }
 
 .site-footer__link {
-  color: #94a3b8;
+  color: #cbd5e1;
   font-size: 0.9rem;
   transition: color 0.2s ease;
 }
@@ -1308,7 +1308,7 @@ a:hover {
   border-top: 1px solid #1e293b;
   text-align: center;
   font-size: 0.85rem;
-  color: #64748b;
+  color: #cbd5e1;
 }
 
 /* ==========================================================================

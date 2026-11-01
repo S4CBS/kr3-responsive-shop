@@ -7,5 +7,10 @@ desktop.ini
 .vscode/
 .idea/
 
+# Dependencies & Node
+node_modules/
+package.json
+package-lock.json
+
 # Logs
 *.log
